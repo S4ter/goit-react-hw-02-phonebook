@@ -13,9 +13,15 @@ export class Feedback extends Component {
   }
 
   countPositiveFeedback = () => {
-    const { good, total } = this.state;
-    const positiveFeedback = (good / total) * 100;
-    this.setState({ positiveFeedback });
+    if (this.state.total === 0) {
+      return 0;
+    } else {
+      this.setState({
+        positiveFeedback: Math.round(
+          (this.state.good / this.state.total) * 100
+        ),
+      });
+    }
   };
   countTotalFeedback = () => {
     this.setState({ total: this.state.total + 1 });
@@ -33,11 +39,13 @@ export class Feedback extends Component {
       neutral: this.state.neutral + 1,
     });
     this.countTotalFeedback();
+    this.countPositiveFeedback();
   };
   handleAddBadReview = () => {
     console.log('Bad was clicked');
     this.setState({ bad: this.state.bad + 1 });
     this.countTotalFeedback();
+    this.countPositiveFeedback();
   };
 
   render() {
@@ -49,7 +57,7 @@ export class Feedback extends Component {
         <span>Neutral: {neutral}</span>
         <span>Bad: {bad}</span>
         <span>Total: {total}</span>
-        <span>Positive Feedback: {positiveFeedback}</span>
+        <span>Positive Feedback: {positiveFeedback}%</span>
         <button type="button" onClick={this.handleAddGoodReview}>
           Good {good}
         </button>
