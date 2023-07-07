@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
-import { Feedback } from 'components/feedback/feedback';
+import { Phonebook } from 'components/Phonebook/phonebook';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Feedback />
+    <Phonebook />
     <App />
   </React.StrictMode>
 );
