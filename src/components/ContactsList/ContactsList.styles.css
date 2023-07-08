@@ -1,0 +1,29 @@
+.filter_form {
+  margin: 20px;
+  border: 1px solid black;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.filter_input {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 200px;
+  height: 30px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.delete_button {
+  width: 70px;
+  height: 30px;
+  background: none;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-left: 10px;
+}
+.delete_button:hover,
+.delete_button:focus {
+  cursor: pointer;
+  background-color: rgba(255, 8, 0, 0.322);
+}
