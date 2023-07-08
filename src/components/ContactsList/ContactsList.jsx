@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { nanoid } from 'nanoid';
-import css from './ContactsList.styles.css';
+import './ContactsList.styles.css';
 export class ContactsList extends Component {
   render() {
-    const { contacts, filter, deleteContact, onFilterChange } = this.props;
+    const { filter, onFilterChange } = this.props;
     const filteredContacts = this.props.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.props.filter.toLowerCase())
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import css from './PhonebookForm.styles.css';
+import './PhonebookForm.styles.css';
 
 export class PhonebookForm extends Component {
   state = {

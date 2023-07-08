@@ -1,10 +1,11 @@
 .filter_form {
   margin: 20px;
-  border: 1px solid black;
+
   padding-left: 10px;
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
+  width: 300px;
 }
 .filter_input {
   border-radius: 5px;
