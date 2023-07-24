@@ -7,6 +7,14 @@ export class Phonebook extends Component {
     contacts: [],
     filter: '',
   };
+
+  componentDidUpdate() {
+    localStorage.setItem('addedContacts', JSON.stringify(this.state.contacts));
+  }
+  componentDidMount() {
+    const storedContacts = localStorage.getItem('addedContacts');
+    this.setState({ contacts: JSON.parse(storedContacts) });
+  }
   checkDuplicateContact = name => {
     return this.state.contacts.some(contact => contact.name === name);
   };
@@ -14,6 +22,7 @@ export class Phonebook extends Component {
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contact],
     }));
+    console.log(this.state.contacts);
   };
   deleteContact = index => {
     this.setState(prevState => {
@@ -26,11 +35,13 @@ export class Phonebook extends Component {
     const { value } = event.target;
     this.setState({ filter: value });
   };
+
   render() {
     const { contacts, filter } = this.state;
     const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
+
     return (
       <div>
         <h1>Phonebook</h1>

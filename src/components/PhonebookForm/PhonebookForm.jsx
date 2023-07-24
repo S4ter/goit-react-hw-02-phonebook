@@ -7,7 +7,6 @@ export class PhonebookForm extends Component {
     name: '',
     number: '',
   };
-
   handleChange = event => {
     const { value, name } = event.target;
     event.preventDefault();
@@ -40,6 +39,7 @@ export class PhonebookForm extends Component {
             value={this.state.name}
             onChange={this.handleChange}
             required
+            pattern="^[A-Za-z.'\- ]+$"
             className="form_input"
             placeholder="Name"
           />
@@ -50,6 +50,7 @@ export class PhonebookForm extends Component {
             value={this.state.number}
             onChange={this.handleChange}
             required
+            pattern="^\+?\d{1,4}?\s?\(?\d{1,4}?\)?\s?\d{1,4}\s?\d{1,4}\s?\d{1,9}$"
             className="form_input"
             placeholder="Number"
           />
